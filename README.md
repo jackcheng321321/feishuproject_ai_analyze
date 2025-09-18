@@ -14,7 +14,7 @@ FeishuProject AI 是一个面向飞书项目管理场景的 AI 辅助分析平�
 ## 技术栈
 
 **后端**
-- FastAPI、SQLAlchemy、Alembic
+- FastAPI、SQLAlchemy、Aalembic
 - Celery、Redis
 - JWT/OAuth2 认证
 
@@ -24,9 +24,9 @@ FeishuProject AI 是一个面向飞书项目管理场景的 AI 辅助分析平�
 
 ## 目录结构
 
-`	ext
+```
 .
-├─bbackend/              # FastAPI 服务，包含 API、模型、任务、服务等子模块
+├─backend/              # FastAPI 服务，包含 API、模型、任务、服务等子模块
 │  ├─app/
 │  │  ├─api/            # v1 接口定义
 │  │  ├─core/           # 配置、安全、日志等核心模块
@@ -35,9 +35,9 @@ FeishuProject AI 是一个面向飞书项目管理场景的 AI 辅助分析平�
 │  │  ├─services/       # 业务服务，如飞书、AI 调度等
 │  │  ├─tasks/          # Celery 任务与调度脚本
 │  │  └─utils/          # 工具方法
-│  ├─alembic/           # 数据库迁移脚本
+│  ├─aalembic/           # 数据库迁移脚本
 │  └─tests/             # 后端测试用例
-├─ffrontend/             # Vue 单页应用
+├─frontend/             # Vue 单页应用
 │  ├─src/
 │  │  ├─api/            # 前端接口封装
 │  │  ├─views/          # 页面视图（任务、模型、监控、Webhook 等）
@@ -47,22 +47,22 @@ FeishuProject AI 是一个面向飞书项目管理场景的 AI 辅助分析平�
 ├─.env.feishu.example   # 飞书相关环境变量模板
 ├─DOCKER-DEPLOYMENT.md  # 容器化部署详细文档
 └─README.md
-`
+```
 
 ## 快速上手
 
 ### 1. 克隆项目
 
 `ash
-git clone <your-github-repo-url>
-cd feishuproject-ai-opensourse
-`
+git clone https://github.com/jackcheng321321/feishuproject_ai_analyze.git
+cd feishuproject_ai_analyze
+```
 
 ### 2. 准备运行环境
 
 #### Python 后端
 `ash
-cd bbackend
+cd backend
 python -m venv .venv
 .\.venv\Scripts\activate        # Windows
 # source .venv/bin/activate      # macOS / Linux
@@ -70,14 +70,14 @@ pip install -r requirements.txt
 
 # 启动后端（默认端口 8000）
 uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
-`
+```
 
 #### 前端
 `ash
-cd ../ffrontend
+cd ../frontend
 npm install
-npm run dev   # 默认端口 3000
-`
+nnpm run dev   # 默认端口 3000
+```
 
 浏览器访问 http://localhost:3000 即可打开管理界面，后端 OpenAPI 文档访问 http://localhost:8000/docs。
 
@@ -93,7 +93,8 @@ npm run dev   # 默认端口 3000
 | SECRET_KEY | JWT 签名密钥（需至少 32 位） | your_jwt_secret_key_32_chars_minimum |
 | ENCRYPTION_KEY | 敏感字段加密密钥 | your_encryption_key_32_chars_long |
 | DATABASE_URL | PostgreSQL 连接串 | postgresql://postgres:your_password@localhost:5433/ai_analysis_dev |
-| REDIS_URL | Redis 连接地址 | edis://localhost:6380/0 |
+| REDIS_URL | Redis 连接地址 | 
+redis://localhost:6380/0 |
 | FEISHU_PLUGIN_ID | 飞书应用 ID | cli_xxx |
 | FEISHU_PLUGIN_SECRET | 飞书应用密钥 | your_feishu_secret |
 | FEISHU_USER_KEY | 飞书用户鉴权密钥 | your_feishu_user_key |
@@ -106,12 +107,12 @@ npm run dev   # 默认端口 3000
 
 ## 开发与调试
 
-- **数据库迁移**：在 backend 目录执行 lembic revision --autogenerate -m "message" 生成迁移，再运行 lembic upgrade head 应用。
-- **代码格式**：推荐使用 lack、isort、lake8 审核后端代码；前端使用 
-pm run lint 与 
-pm run type-check。
+- **数据库迁移**：在 backend 目录执行 alembic revision --autogenerate -m "message" 生成迁移，再运行 alembic upgrade head 应用。
+- **代码格式**：推荐使用 black、isort、flake8 审核后端代码；前端使用 
+npm run lint 与 
+npm run type-check。
 - **测试**：pytest 可运行后端测试，前端可使用 
-pm run test。
+npm run test。
 - **日志查看**：后端默认输出到控制台，可根据配置写入文件；前端可通过浏览器 DevTools 及应用内日志页面排查问题。
 
 ## 安全与合规提示
