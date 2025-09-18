@@ -1,0 +1,86 @@
+# FastAPI核心依赖
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+
+# 数据库相关
+sqlalchemy==2.0.23
+asyncpg==0.29.0
+psycopg2-binary==2.9.7
+alembic==1.12.1
+
+# 数据验证
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# 安全认证
+passlib[bcrypt]==1.7.4
+python-jose[cryptography]==3.3.0
+python-multipart==0.0.6
+
+# HTTP客户端
+httpx==0.25.2
+requests==2.31.0
+
+# 日志
+loguru==0.7.2
+
+# 配置管理
+python-dotenv==1.0.0
+
+# 时间处理
+python-dateutil==2.8.2
+
+# JSON处理
+orjson==3.9.10
+
+# 异步任务
+celery==5.3.4
+redis==5.0.1
+
+# 文件处理
+aiofiles==23.2.1
+
+# HTTP客户端（用于AI模型调用）
+aiohttp==3.9.1
+
+# 测试
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0
+
+# 开发工具
+black==23.11.0
+isort==5.12.0
+flake8==6.1.0
+mypy==1.7.1
+
+# 监控
+prometheus-client==0.19.0
+
+# 存储
+boto3==1.34.0
+azure-storage-blob==12.19.0
+google-cloud-storage==2.10.0
+
+# AI/ML
+openai==1.3.7
+anthropic==0.8.1
+
+# JSON处理和解析
+jsonpath-ng==1.6.1
+
+# 配置文件处理
+PyYAML==6.0.1
+
+# 加密处理
+cryptography==43.0.3
+
+# 其他工具
+click==8.1.7
+rich==13.7.0
+typer==0.9.0
+
+# 文件系统访问支持
+smbprotocol==1.12.0  # SMB/CIFS协议支持
+paramiko==3.4.0      # SFTP/SSH支持
+ftputil==5.0.4       # FTP协议支持
